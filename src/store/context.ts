@@ -1,4 +1,4 @@
-import { formInputs } from '../types';
+import { FormInputs } from '~/types';
 
 export const initialFormValues = {
   first_name: '',
@@ -18,4 +18,4 @@ export const initialFormValues = {
   number_of_days_from_office: 0,
   what_about_meetings_in_live: undefined,
   tell_us_your_opinion_about_us: undefined,
-} satisfies formInputs;
+} satisfies FormInputs;

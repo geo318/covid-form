@@ -1,7 +1,17 @@
-import { formInputs, stepFour, stepOne, stepThree, stepTwo } from '../types';
+import {
+  FormInputs,
+  PersonalInformation,
+  HadCovid,
+  AlreadyVaccinated,
+  AdditionalInformation,
+} from '../types';
 
-export type valueProps = stepOne | stepTwo | stepThree | stepFour;
+export type valueProps =
+  | PersonalInformation
+  | HadCovid
+  | AlreadyVaccinated
+  | AdditionalInformation;
 export type ctx = {
-  values: formInputs;
+  values: FormInputs;
   updateValues: (values: valueProps) => void;
 };

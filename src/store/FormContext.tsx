@@ -1,13 +1,13 @@
 import { useState, createContext } from 'react';
-import { formInputs, Props } from '../types';
+import { FormInputs, Props } from '../types';
 import { initialFormValues } from './context';
 import { ctx, valueProps } from './types';
 
 export const FormContextProvider: React.FC<Props> = (props) => {
-  const [values, setValues] = useState<formInputs>(initialFormValues);
+  const [values, setValues] = useState<FormInputs>(initialFormValues);
 
   const updateContext = (updatedValues: valueProps) => {
-    setValues((prevState) => {
+    setValues((prevState: FormInputs) => {
       return { ...prevState, ...updatedValues };
     });
   };

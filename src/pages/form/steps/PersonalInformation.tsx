@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { InputText } from 'components/input-text';
 import { useNavigate } from 'react-router-dom';
-import { personalInformation } from 'types';
+import { PersonalInformation as PersonalInformationType } from 'types';
 
 export const PersonalInformation = () => {
   const {
@@ -12,7 +12,8 @@ export const PersonalInformation = () => {
 
   let navigate = useNavigate();
 
-  const onSubmit = (data: {} | personalInformation) => navigate('./form/covid');
+  const onSubmit = (data: {} | PersonalInformationType) =>
+    navigate('./form/covid');
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

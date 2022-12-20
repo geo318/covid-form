@@ -1,11 +1,11 @@
-export interface personalInformation {
+export interface PersonalInformation {
   first_name: string;
   last_name: string;
   email: string;
 }
 
-export interface hadCovid {
-  had_covid: HadCovid;
+export interface HadCovid {
+  had_covid: HadCovidField;
   had_antibody_test?: boolean;
   covid_sickness_date?: string;
   antibodies: {
@@ -14,26 +14,26 @@ export interface hadCovid {
   };
 }
 
-export interface alreadyVaccinated {
+export interface AlreadyVaccinated {
   had_vaccine: boolean;
   vaccination_stage?: VaccinationStage;
   i_am_waiting?: Waiting;
 }
 
-export interface additionalInformation {
+export interface AdditionalInformation {
   non_formal_meetings: Meetings;
   number_of_days_from_office: DaysFromOffice;
   what_about_meetings_in_live?: string;
   tell_us_your_opinion_about_us?: string;
 }
 
-export interface formInputs
-  extends personalInformation,
-    hadCovid,
-    alreadyVaccinated,
-    additionalInformation {}
+export interface FormInputs
+  extends PersonalInformation,
+    HadCovid,
+    AlreadyVaccinated,
+    AdditionalInformation {}
 
-type HadCovid = 'yes' | 'no' | 'have_right_now';
+type HadCovidField = 'yes' | 'no' | 'have_right_now';
 
 type VaccinationStage =
   | 'first_dosage_and_registered_on_the_second'
