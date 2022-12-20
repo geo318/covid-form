@@ -12,8 +12,7 @@ export const PersonalInformation = () => {
 
   let navigate = useNavigate();
 
-  const onSubmit = (data: {} | personalInformation) =>
-    navigate('./form/step-2');
+  const onSubmit = (data: {} | personalInformation) => navigate('./form/covid');
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
