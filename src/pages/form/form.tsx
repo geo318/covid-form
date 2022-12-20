@@ -1,16 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import { StepOne } from './step-1';
-import { StepTwo } from './step-2';
-import { StepThree } from './step-3';
-import { StepFour } from './step-4';
+import { AdditionalInformation } from './steps/AdditionalInformation';
+import { AlreadyVaccinated } from './steps/AlreadyVaccinated';
+import { HadCovid } from './steps/HadCovid';
+import { PersonalInformation } from './steps/PersonalInformation';
 
 export const Form = () => {
   return (
     <Routes>
-      <Route path='form/step-1' element={<StepOne />} />
-      <Route path='form/step-2' element={<StepTwo />} />
-      <Route path='form/step-3' element={<StepThree />} />
-      <Route path='form/step-4' element={<StepFour />} />
+      <Route path='form/personal' element={<PersonalInformation />} />
+      <Route path='form/covid' element={<HadCovid />} />
+      <Route path='form/vaccinated' element={<AlreadyVaccinated />} />
+      <Route path='form/additional' element={<AdditionalInformation />} />
     </Routes>
   );
 };

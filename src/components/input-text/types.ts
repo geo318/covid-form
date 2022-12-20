@@ -1,4 +1,4 @@
-import { Props } from '../../types';
+import { Props } from 'types';
 import { FieldValues, FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 
 export type errorMessage = { type: string; message: string };

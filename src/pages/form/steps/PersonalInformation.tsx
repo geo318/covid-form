@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
-import { InputText } from '../../components/input-text';
+import { InputText } from 'components/input-text';
 import { useNavigate } from 'react-router-dom';
-import { stepOne } from '../../types';
+import { personalInformation } from 'types';
 
-export const StepOne = () => {
+export const PersonalInformation = () => {
   const {
     register,
     handleSubmit,
@@ -12,7 +12,8 @@ export const StepOne = () => {
 
   let navigate = useNavigate();
 
-  const onSubmit = (data: {} | stepOne) => navigate('./form/step-2');
+  const onSubmit = (data: {} | personalInformation) =>
+    navigate('./form/step-2');
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

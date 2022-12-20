@@ -1,10 +1,10 @@
-export interface stepOne {
+export interface personalInformation {
   first_name: string;
   last_name: string;
   email: string;
 }
 
-export interface stepTwo {
+export interface hadCovid {
   had_covid: HadCovid;
   had_antibody_test?: boolean;
   covid_sickness_date?: string;
@@ -14,20 +14,24 @@ export interface stepTwo {
   };
 }
 
-export interface stepThree {
+export interface alreadyVaccinated {
   had_vaccine: boolean;
   vaccination_stage?: VaccinationStage;
   i_am_waiting?: Waiting;
 }
 
-export interface stepFour {
+export interface additionalInformation {
   non_formal_meetings: Meetings;
   number_of_days_from_office: DaysFromOffice;
   what_about_meetings_in_live?: string;
   tell_us_your_opinion_about_us?: string;
 }
 
-export interface formInputs extends stepOne, stepTwo, stepThree, stepFour {}
+export interface formInputs
+  extends personalInformation,
+    hadCovid,
+    alreadyVaccinated,
+    additionalInformation {}
 
 type HadCovid = 'yes' | 'no' | 'have_right_now';
 
