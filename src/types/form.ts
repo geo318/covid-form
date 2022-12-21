@@ -1,3 +1,15 @@
+import {
+  UseFormRegister,
+  UseFormHandleSubmit,
+  FieldValues,
+} from 'react-hook-form';
+
+export type UseFormHookValues = {
+  register?: UseFormRegister<FieldValues>;
+  handleSubmit?: UseFormHandleSubmit<FieldValues>;
+  errors?: { [key: string]: { type: string; message: string } } | any;
+};
+
 export interface PersonalInformation {
   first_name: string;
   last_name: string;

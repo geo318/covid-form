@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 import { FormInputs, Props } from '../types';
-import { initialFormValues } from './context';
+import { initialFormValues } from './initial-form-values';
 import { ctx, valueProps } from './types';
 
 export const FormContextProvider: React.FC<Props> = (props) => {

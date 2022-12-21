@@ -1,29 +1,32 @@
 import { inputProps } from '.';
-import { errorMessage } from '.';
+import { useContext } from 'react';
+import { formContext } from '~/store/form-context';
 
 export const InputText: React.FC<inputProps> = ({
   name,
   label,
   placeholder,
   validation,
-  messages,
-  register,
-  errors,
 }) => {
-  console.log(errors);
+  const { register, errors } = useContext(formContext);
+
+  const errorMessage: string = errors?.[name] ? errors[name].message : '';
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
+    <div className='max-w-lg'>
+      <label htmlFor={name} className='block font-bold text-xl leading-6 pb-4'>
+        {label}
+      </label>
       <input
+        className='w-full border border-[#232323] px-5 py-3 outline-none text-lg left-6 font-normal mb-2 bg-[#EAEAEA]'
         type='text'
-        {...register(name, validation)}
+        {...register!(name, validation)}
         placeholder={placeholder}
       />
-      {messages.map(
-        (e: errorMessage) =>
-          errors[name] &&
-          errors[name]!.type === e.type && <span key={e.type}>{e.message}</span>
-      )}
+      <div className='h-5 mb-6'>
+        <span className='text-[#F15524] text-base leading-5'>
+          {errorMessage}
+        </span>
+      </div>
     </div>
   );
 };

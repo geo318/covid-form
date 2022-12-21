@@ -4,7 +4,10 @@ export const localStore = (name: string, data: any) => {
     return;
   }
 
-  if (data === null) localStorage.removeItem(name);
+  if (data === null) {
+    localStorage.removeItem(name);
+    return;
+  }
 
   try {
     const item = localStorage.getItem(name);
