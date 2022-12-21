@@ -1,22 +1,17 @@
-import { InputText } from 'components/input-text';
-import { useNavigate } from 'react-router-dom';
-import { PersonalInformation as PersonalInformationType } from 'types';
-import { useContext } from 'react';
-import { formContext } from '~/store/form-context';
-import { Switcher } from '~/components/form-elements/switcher';
-import { Aside } from '~/components/form-elements/right-panel';
-import image from '~/assets/images/form-1.png';
+import { InputText } from '~/components/InputText';
+import { Switcher } from '~/components/FormElements/Switcher';
+import { Aside } from '~/components/FormElements/Aside';
+import { PersonalInformationImage } from '~/assets/images';
+import { useFormNavigation } from '~/hooks/useFormNavigation';
 
 export const PersonalInformation = () => {
-  const { handleSubmit } = useContext(formContext);
-
-  let navigate = useNavigate();
-
-  const onSubmit = (data: {} | PersonalInformationType) =>
-    navigate('./form/covid');
+  const { onSubmitForm, handleSubmit } = useFormNavigation();
 
   return (
-    <form onSubmit={handleSubmit!(onSubmit)} className='flex flex-col w-full'>
+    <form
+      onSubmit={handleSubmit!(() => onSubmitForm('covid'))}
+      className='flex flex-col w-full'
+    >
       <div className='flex'>
         <div className='basis-1/2'>
           <InputText
@@ -73,7 +68,7 @@ export const PersonalInformation = () => {
           </div>
         </div>
         <Aside>
-          <img src={image} alt='' />
+          <img src={PersonalInformationImage} alt='' />
         </Aside>
       </div>
       <Switcher />

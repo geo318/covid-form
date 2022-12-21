@@ -1,30 +1,22 @@
-type props = {
-  url: string;
-  error: string;
-  log: boolean;
-  payload?: any;
-};
-
+import { Props } from './types';
 const Req = {
-  async sendRequest(props: props) {
-    const { url, error, log, payload } = props;
+  async sendRequest(props: Props) {
+    const { url, error, payload } = props;
     try {
       const res = await fetch(url, payload || {});
       if (!res.ok) throw new Error(error || this._error);
       const data = await res.json();
-      log && console.log(data);
       return data;
     } catch (e: any) {
-      log && console.log(e);
       return e.message;
     }
   },
 
-  async get(params: props) {
+  async get(params: Props) {
     return await this.sendRequest({ ...params, payload: null });
   },
 
-  async post(params: props) {
+  async post(params: Props) {
     await this.sendRequest({
       ...params,
       payload: {

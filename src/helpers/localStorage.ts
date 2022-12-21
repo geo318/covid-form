@@ -1,4 +1,6 @@
-export const localStore = (name: string, data: any) => {
+import { FormInputs } from '~/types';
+
+export const localStore = (name: string, data?: string | FormInputs | null) => {
   if (data) {
     localStorage.setItem(name, JSON.stringify(data));
     return;
@@ -13,6 +15,6 @@ export const localStore = (name: string, data: any) => {
     const item = localStorage.getItem(name);
     if (item) return JSON.parse(item);
   } catch (e) {
-    console.log(e);
+    return e;
   }
 };

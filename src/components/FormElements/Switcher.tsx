@@ -1,5 +1,4 @@
-import arrowPrev from '~/assets/images/arrow-prev.svg';
-import arrowNext from '~/assets/images/arrow-next.svg';
+import { Arrow } from '~/assets/icons';
 import { useNavigate } from 'react-router-dom';
 
 export const Switcher = () => {
@@ -7,11 +6,11 @@ export const Switcher = () => {
   return (
     <div className='pb-28 flex items-center justify-center mt-auto'>
       <button onClick={() => navigate(-1)}>
-        <img src={arrowPrev} alt='previous' />
+        <Arrow />
       </button>
       <div className='w-28' />
       <button type='submit'>
-        <img src={arrowNext} alt='next' />
+        <Arrow right />
       </button>
     </div>
   );

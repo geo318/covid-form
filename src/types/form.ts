@@ -10,6 +10,12 @@ export type UseFormHookValues = {
   errors?: { [key: string]: { type: string; message: string } } | any;
 };
 
+export type FormPageData =
+  | PersonalInformation
+  | PersonalInformation
+  | AlreadyVaccinated
+  | AdditionalInformation;
+
 export interface PersonalInformation {
   first_name: string;
   last_name: string;

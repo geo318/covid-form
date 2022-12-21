@@ -1,5 +1,5 @@
 import { Props } from '../types/index';
-import logo from '../assets/images/logo.svg';
+import { Logo } from '~/assets/icons';
 import { Link } from 'react-router-dom';
 
 const Welcome: React.FC<Props> = (props) => {
@@ -7,7 +7,9 @@ const Welcome: React.FC<Props> = (props) => {
     <div className='w-full h-full flex justify-center items-center overflow-hidden'>
       <div className='flex flex-col justify-center items-center h-screen max-w-xs'>
         <div className='mb-24 h-24 w-24 relative'>
-          <img className='logo absolute' src={logo} alt='logo' />
+          <div className='logo absolute'>
+            <Logo />
+          </div>
         </div>
         <div className='overflow-hidden'>
           <Link

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Form } from './pages/form/form';
-import Welcome from './pages/welcome';
+import { Form } from './pages/Form/Form';
+import Welcome from './pages/Welcome';
 import { FormContextProvider } from './store/FormContextProvider';
 
 function App() {
