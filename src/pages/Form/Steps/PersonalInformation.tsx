@@ -1,4 +1,4 @@
-import { InputText, Switcher, Aside } from 'components';
+import { InputText, Switcher, Aside } from 'Components';
 import { PersonalInformationImage } from 'assets';
 import { useFormNavigation } from 'hooks';
 

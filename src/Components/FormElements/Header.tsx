@@ -1,4 +1,4 @@
-import { Redberry } from 'components';
+import { Redberry } from 'Components';
 
 export const Header = () => {
   return (
@@ -10,3 +10,5 @@ export const Header = () => {
     </div>
   );
 };
+
+export default Header;

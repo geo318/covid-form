@@ -1,4 +1,4 @@
-import { Arrow } from 'components';
+import { Arrow } from 'Components';
 import { useFormNavigation } from 'hooks';
 
 export const Switcher = () => {

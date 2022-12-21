@@ -6,7 +6,7 @@ import {
   PersonalInformation,
 } from 'pages';
 import { formContext } from 'store';
-import { Header } from 'components';
+import { Header } from 'Components';
 import { useFormHook, useFormNavigation } from 'hooks';
 
 const Form = () => {

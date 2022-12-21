@@ -1,5 +1,5 @@
 import { Props } from 'types';
-import { Logo } from 'components';
+import { Logo } from 'Components';
 import { Link } from 'react-router-dom';
 
 const Welcome: React.FC<Props> = (props) => {
