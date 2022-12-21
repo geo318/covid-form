@@ -19,7 +19,7 @@ const PersonalInformation = () => {
             validation={{
               required: {
                 value: true,
-                message: 'სავალდებული ველი',
+                message: 'სავალდებულო ველი',
               },
               minLength: {
                 value: 3,
@@ -34,7 +34,7 @@ const PersonalInformation = () => {
             validation={{
               required: {
                 value: true,
-                message: 'სავალდებული ველი',
+                message: 'სავალდებულო ველი',
               },
               minLength: {
                 value: 3,
@@ -49,7 +49,7 @@ const PersonalInformation = () => {
             validation={{
               required: {
                 value: true,
-                message: 'სავალდებული ველი',
+                message: 'სავალდებულო ველი',
               },
               pattern: {
                 value: /^.+@redberry.ge$/,

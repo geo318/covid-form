@@ -13,11 +13,14 @@ export const useFormNavigation = () => {
     additional: 'form/additional',
   };
   const { handleSubmit, errors, register } = useContext(formContext);
+
   const navigate = useNavigate();
-  const navigateBack = (e) => {
+
+  const navigateBack = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     navigate(-1);
   };
+
   const onSubmitForm = (pageKey: PageKey, data?: FormPageData) =>
     navigate(paths[pageKey]);
 
@@ -25,6 +28,7 @@ export const useFormNavigation = () => {
 
   const errorMessage = (name: string) =>
     errors?.[name] ? errors[name].message : '';
+
   return {
     handleSubmit,
     onSubmitForm,
