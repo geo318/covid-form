@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
 type PageKey = 'personal' | 'covid' | 'vaccinated' | 'additional';
 
-const useFormNavigation = () => {
+export const useFormNavigation = () => {
   const paths: { [key: string]: string } = {
     personal: 'form/personal',
     covid: 'form/covid',
@@ -32,5 +32,3 @@ const useFormNavigation = () => {
     errorMessage,
   };
 };
-
-export default useFormNavigation;

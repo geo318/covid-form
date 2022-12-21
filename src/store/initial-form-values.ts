@@ -1,6 +1,6 @@
 import { FormInputs } from 'types';
 
-const initialFormValues = {
+export const initialFormValues = {
   first_name: '',
   last_name: '',
   email: '',
@@ -19,5 +19,3 @@ const initialFormValues = {
   what_about_meetings_in_live: undefined,
   tell_us_your_opinion_about_us: undefined,
 } satisfies FormInputs;
-
-export default initialFormValues;

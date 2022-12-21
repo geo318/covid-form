@@ -1,7 +1,7 @@
 import { inputProps } from '.';
 import { useFormNavigation } from 'hooks';
 
-export const InputText: React.FC<inputProps> = ({
+const InputText: React.FC<inputProps> = ({
   name,
   label,
   placeholder,
@@ -28,3 +28,5 @@ export const InputText: React.FC<inputProps> = ({
     </div>
   );
 };
+
+export default InputText;

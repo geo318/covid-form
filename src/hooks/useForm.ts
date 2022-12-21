@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-const useFormHook = () => {
+export const useFormHook = () => {
   const {
     register,
     handleSubmit,
@@ -9,5 +9,3 @@ const useFormHook = () => {
 
   return { register, handleSubmit, errors };
 };
-
-export default useFormHook;
