@@ -1,6 +1,6 @@
 import { Redberry } from 'Components';
 
-export const Header = () => {
+const Header = () => {
   return (
     <div className='pt-24 border-b-2 border-[#232323]'>
       <div className='flex justify-between pb-6 align-baseline'>

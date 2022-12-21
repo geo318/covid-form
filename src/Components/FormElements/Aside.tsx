@@ -1,5 +1,12 @@
-import { Props } from 'types';
+import { AsideProps } from 'types';
 
-export const Aside: React.FC<Props> = ({ children }) => {
-  return <div className='w-1/2 h-full'>{children}</div>;
+const Aside: React.FC<AsideProps> = ({ img, children }) => {
+  return (
+    <div className='w-1/2 h-full'>
+      <img className='max-h-[35rem]' src={img} alt='' />
+      {children}
+    </div>
+  );
 };
+
+export default Aside;

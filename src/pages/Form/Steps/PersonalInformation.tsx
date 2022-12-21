@@ -65,9 +65,7 @@ const PersonalInformation = () => {
             </p>
           </div>
         </div>
-        <Aside>
-          <img src={PersonalInformationImage} alt='' />
-        </Aside>
+        <Aside img={PersonalInformationImage} />
       </div>
       <Switcher />
     </form>

@@ -14,7 +14,10 @@ export const useFormNavigation = () => {
   };
   const { handleSubmit, errors, register } = useContext(formContext);
   const navigate = useNavigate();
-
+  const navigateBack = (e) => {
+    e.preventDefault();
+    navigate(-1);
+  };
   const onSubmitForm = (pageKey: PageKey, data?: FormPageData) =>
     navigate(paths[pageKey]);
 
@@ -27,6 +30,7 @@ export const useFormNavigation = () => {
     onSubmitForm,
     link,
     navigate,
+    navigateBack,
     errors,
     register,
     errorMessage,

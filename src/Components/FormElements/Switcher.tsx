@@ -1,11 +1,11 @@
 import { Arrow } from 'Components';
 import { useFormNavigation } from 'hooks';
 
-export const Switcher = () => {
-  const { navigate } = useFormNavigation();
+const Switcher = () => {
+  const { navigateBack } = useFormNavigation();
   return (
     <div className='pb-28 flex items-center justify-center mt-auto'>
-      <button onClick={() => navigate(-1)}>
+      <button onClick={navigateBack}>
         <Arrow />
       </button>
       <div className='w-28' />
@@ -15,3 +15,5 @@ export const Switcher = () => {
     </div>
   );
 };
+
+export default Switcher;
