@@ -1,13 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import { AdditionalInformation } from './Steps/AdditionalInformation';
-import { AlreadyVaccinated } from './Steps/AlreadyVaccinated';
-import { HadCovid } from './Steps/HadCovid';
-import { PersonalInformation } from './Steps/PersonalInformation';
-import { formContext } from '~/store/form-context';
-import { Header } from '~/components/FormElements/Header';
-import { useFormHook } from '~/hooks/useForm';
-import { useFormNavigation } from '~/hooks/useFormNavigation';
-export const Form = () => {
+import {
+  AdditionalInformation,
+  AlreadyVaccinated,
+  HadCovid,
+  PersonalInformation,
+} from 'pages';
+import { formContext } from 'store';
+import { Header } from 'components';
+import { useFormHook, useFormNavigation } from 'hooks';
+
+const Form = () => {
   const { link } = useFormNavigation();
   return (
     <>
@@ -28,3 +30,5 @@ export const Form = () => {
     </>
   );
 };
+
+export default Form;

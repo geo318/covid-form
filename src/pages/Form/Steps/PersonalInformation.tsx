@@ -1,10 +1,8 @@
-import { InputText } from '~/components/InputText';
-import { Switcher } from '~/components/FormElements/Switcher';
-import { Aside } from '~/components/FormElements/Aside';
-import { PersonalInformationImage } from '~/assets/images';
-import { useFormNavigation } from '~/hooks/useFormNavigation';
+import { InputText, Switcher, Aside } from 'components';
+import { PersonalInformationImage } from 'assets';
+import { useFormNavigation } from 'hooks';
 
-export const PersonalInformation = () => {
+const PersonalInformation = () => {
   const { onSubmitForm, handleSubmit } = useFormNavigation();
 
   return (
@@ -75,3 +73,5 @@ export const PersonalInformation = () => {
     </form>
   );
 };
+
+export default PersonalInformation;

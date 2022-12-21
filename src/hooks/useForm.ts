@@ -1,8 +1,7 @@
 import { useForm } from 'react-hook-form';
 
-export const useFormHook = () => {
+const useFormHook = () => {
   const {
-    getValues,
     register,
     handleSubmit,
     formState: { errors },
@@ -10,3 +9,5 @@ export const useFormHook = () => {
 
   return { register, handleSubmit, errors };
 };
+
+export default useFormHook;

@@ -1,6 +1,5 @@
 import { inputProps } from '.';
-import { useContext } from 'react';
-import { formContext } from '~/store/form-context';
+import { useFormNavigation } from 'hooks';
 
 export const InputText: React.FC<inputProps> = ({
   name,
@@ -8,9 +7,8 @@ export const InputText: React.FC<inputProps> = ({
   placeholder,
   validation,
 }) => {
-  const { register, errors } = useContext(formContext);
+  const { register, errorMessage } = useFormNavigation();
 
-  const errorMessage: string = errors?.[name] ? errors[name].message : '';
   return (
     <div className='max-w-lg'>
       <label htmlFor={name} className='block font-bold text-xl leading-6 pb-4'>
@@ -24,7 +22,7 @@ export const InputText: React.FC<inputProps> = ({
       />
       <div className='h-5 mb-6'>
         <span className='text-[#F15524] text-base leading-5'>
-          {errorMessage}
+          {errorMessage(name)}
         </span>
       </div>
     </div>

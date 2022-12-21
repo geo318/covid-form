@@ -1,4 +1,4 @@
-export const Redberry = () => (
+const Redberry = () => (
   <svg
     width='148'
     height='24'
@@ -51,3 +51,4 @@ export const Redberry = () => (
     </defs>
   </svg>
 );
+export default Redberry;

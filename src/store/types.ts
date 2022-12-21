@@ -4,7 +4,7 @@ import {
   HadCovid,
   AlreadyVaccinated,
   AdditionalInformation,
-} from '../types';
+} from 'types';
 
 export type valueProps =
   | PersonalInformation

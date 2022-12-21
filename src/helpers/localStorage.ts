@@ -1,4 +1,4 @@
-import { FormInputs } from '~/types';
+import { FormInputs } from 'types';
 
 export const localStore = (name: string, data?: string | FormInputs | null) => {
   if (data) {

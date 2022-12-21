@@ -1,4 +1,5 @@
 import { createContext } from 'react';
-import { UseFormHookValues } from '~/types';
+import { UseFormHookValues } from 'types';
 
-export const formContext = createContext<UseFormHookValues>({});
+const formContext = createContext<UseFormHookValues>({});
+export default formContext;

@@ -1,8 +1,6 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Form } from './pages/Form/Form';
-import Welcome from './pages/Welcome';
-import { FormContextProvider } from './store/FormContextProvider';
+import { Form, Welcome } from 'pages';
+import { FormContextProvider } from 'store';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import { Redberry } from '~/assets/icons';
+import { Redberry } from 'components';
 
 export const Header = () => {
   return (

@@ -1,4 +1,4 @@
-export const Arrow: React.FC<{ right?: boolean }> = ({ right }) => (
+const Arrow: React.FC<{ right?: boolean }> = ({ right }) => (
   <>
     {right ? (
       <svg
@@ -31,3 +31,5 @@ export const Arrow: React.FC<{ right?: boolean }> = ({ right }) => (
     )}
   </>
 );
+
+export default Arrow;

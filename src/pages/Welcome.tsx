@@ -1,5 +1,5 @@
-import { Props } from '../types/index';
-import { Logo } from '~/assets/icons';
+import { Props } from 'types';
+import { Logo } from 'components';
 import { Link } from 'react-router-dom';
 
 const Welcome: React.FC<Props> = (props) => {
