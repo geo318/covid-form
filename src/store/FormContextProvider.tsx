@@ -1,9 +1,9 @@
 import { useState, createContext } from 'react';
-import { FormInputs, Props } from '../types';
-import { initialFormValues } from './context';
-import { ctx, valueProps } from './types';
+import { FormInputs, Props } from 'types';
+import { initialFormValues } from 'store';
+import { ctx, valueProps } from 'store';
 
-export const FormContextProvider: React.FC<Props> = (props) => {
+const FormContextProvider: React.FC<Props> = (props) => {
   const [values, setValues] = useState<FormInputs>(initialFormValues);
 
   const updateContext = (updatedValues: valueProps) => {
@@ -27,3 +27,5 @@ export const FormContextProvider: React.FC<Props> = (props) => {
     </FormContext.Provider>
   );
 };
+
+export default FormContextProvider;
