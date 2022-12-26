@@ -1,30 +1,39 @@
-import { inputProps } from '.';
-import { useFormNavigation } from 'hooks';
+import { InputProps } from '.';
+import { useFormContext } from 'react-hook-form';
 
-const InputText: React.FC<inputProps> = ({
+const InputText: React.FC<InputProps> = ({
   name,
   label,
   placeholder,
   validation,
+  type = 'text',
 }) => {
-  const { register, errorMessage } = useFormNavigation();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   return (
     <div className='max-w-lg'>
-      <label htmlFor={name} className='block font-bold text-xl leading-6 pb-4'>
+      <label
+        htmlFor={name}
+        className='block font-bold text-[1.375rem] leading-7 pb-5'
+      >
         {label}
       </label>
       <input
         className='w-full border border-[#232323] px-5 py-3 outline-none text-lg left-6 font-normal mb-2 bg-[#EAEAEA]'
-        type='text'
+        type={type}
         {...register!(name, validation)}
         placeholder={placeholder}
       />
-      <div className='h-5 mb-6'>
-        <span className='text-[#F15524] text-base leading-5'>
-          {errorMessage(name)}
-        </span>
-      </div>
+      {validation ? (
+        <div className='h-5 mb-6'>
+          <span className='text-[#F15524] text-base leading-5'>
+            {errors?.[name] && <p>{errors[name]!.message as string}</p>}
+          </span>
+        </div>
+      ) : null}
     </div>
   );
 };

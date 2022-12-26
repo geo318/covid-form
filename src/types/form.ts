@@ -3,10 +3,19 @@ import {
   UseFormHandleSubmit,
   FieldValues,
 } from 'react-hook-form';
+import { Props } from 'types';
+
+export type PageKey = 'personal' | 'covid' | 'vaccinated' | 'additional';
+
+export interface FormLayoutProps extends Props {
+  img: string;
+}
 
 export type UseFormHookValues = {
   register?: UseFormRegister<FieldValues>;
   handleSubmit?: UseFormHandleSubmit<FieldValues>;
+  watch?: any;
+  getValues?: any;
   errors?: { [key: string]: { type: string; message: string } } | any;
 };
 
@@ -26,10 +35,8 @@ export interface HadCovid {
   had_covid: HadCovidField;
   had_antibody_test?: boolean;
   covid_sickness_date?: string;
-  antibodies: {
-    test_date?: string;
-    number?: number;
-  };
+  test_date?: string;
+  number?: number;
 }
 
 export interface AlreadyVaccinated {
@@ -43,6 +50,12 @@ export interface AdditionalInformation {
   number_of_days_from_office: DaysFromOffice;
   what_about_meetings_in_live?: string;
   tell_us_your_opinion_about_us?: string;
+}
+export interface FormSteps {
+  personal: boolean;
+  covid: boolean;
+  vaccinated: boolean;
+  additional: boolean;
 }
 
 export interface FormInputs
