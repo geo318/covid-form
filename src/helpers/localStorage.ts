@@ -1,20 +1,24 @@
-import { FormInputs } from 'types';
+import { FormInputs, FormSteps } from 'types';
 
-export const localStore = (name: string, data?: string | FormInputs | null) => {
+export const localStore = (
+  name: string,
+  data?: string | FormInputs | FormSteps | null
+) => {
   if (data) {
     localStorage.setItem(name, JSON.stringify(data));
-    return;
+    return true;
   }
 
   if (data === null) {
     localStorage.removeItem(name);
-    return;
+    return true;
   }
 
   try {
     const item = localStorage.getItem(name);
     if (item) return JSON.parse(item);
+    return {};
   } catch (e) {
-    return e;
+    console.log(e);
   }
 };

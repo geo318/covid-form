@@ -1,4 +1,4 @@
-import { FormInputs } from 'types';
+import { FormInputs, FormSteps } from 'types';
 
 export const initialFormValues = {
   first_name: '',
@@ -7,10 +7,8 @@ export const initialFormValues = {
   had_covid: 'no',
   had_antibody_test: undefined,
   covid_sickness_date: undefined,
-  antibodies: {
-    test_date: undefined,
-    number: undefined,
-  },
+  test_date: undefined,
+  number: undefined,
   had_vaccine: false,
   vaccination_stage: undefined,
   i_am_waiting: undefined,
@@ -19,3 +17,10 @@ export const initialFormValues = {
   what_about_meetings_in_live: undefined,
   tell_us_your_opinion_about_us: undefined,
 } satisfies FormInputs;
+
+export const initialStepValues = {
+  personal: false,
+  covid: false,
+  vaccinated: false,
+  additional: false,
+} satisfies FormSteps;

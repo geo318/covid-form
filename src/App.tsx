@@ -10,7 +10,6 @@ function App() {
           <Routes>
             <Route path='/' element={<Welcome />} />
             <Route path='*' element={<Form />} />
-            {/* <Route path='*' element={<p>Path not resolved</p>} /> */}
           </Routes>
         </div>
       </BrowserRouter>

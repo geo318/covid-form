@@ -1,33 +1,51 @@
-import { Routes, Route } from 'react-router-dom';
+import { FormContextProvider } from 'store';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useForm, FormProvider } from 'react-hook-form';
+import { useFormNavigation, useGetLocalStorage } from 'hooks';
 import {
   AdditionalInformation,
   AlreadyVaccinated,
   HadCovid,
   PersonalInformation,
 } from 'pages';
-import { formContext } from 'store';
 import { Header } from 'Components';
-import { useFormHook, useFormNavigation } from 'hooks';
 
 const Form = () => {
-  const { link } = useFormNavigation();
+  const { link, steps } = useFormNavigation();
+  const { getLocalValues } = useGetLocalStorage();
+
   return (
-    <>
+    <FormContextProvider>
       <Header />
-      <formContext.Provider value={useFormHook()}>
+      <FormProvider
+        {...useForm({ mode: 'onBlur', defaultValues: getLocalValues() })}
+      >
         <div className='pt-11 flex-1 flex'>
           <Routes>
             <Route path={link('personal')} element={<PersonalInformation />} />
-            <Route path={link('covid')} element={<HadCovid />} />
-            <Route path={link('vaccinated')} element={<AlreadyVaccinated />} />
-            <Route
-              path={link('additional')}
-              element={<AdditionalInformation />}
-            />
+            {steps.personal && (
+              <Route path={link('covid')} element={<HadCovid />} />
+            )}
+
+            {steps.covid && (
+              <Route
+                path={link('vaccinated')}
+                element={<AlreadyVaccinated />}
+              />
+            )}
+            {steps.vaccinated && (
+              <Route
+                path={link('additional')}
+                element={<AdditionalInformation />}
+              />
+            )}
+            {false && (
+              <Route path='*' element={<Navigate replace to='/error-page' />} />
+            )}
           </Routes>
         </div>
-      </formContext.Provider>
-    </>
+      </FormProvider>
+    </FormContextProvider>
   );
 };
 

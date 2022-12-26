@@ -1,9 +1,10 @@
 import {
-  FormInputs,
+  FormSteps,
   PersonalInformation,
   HadCovid,
   AlreadyVaccinated,
   AdditionalInformation,
+  PageKey,
 } from 'types';
 
 export type valueProps =
@@ -11,7 +12,13 @@ export type valueProps =
   | HadCovid
   | AlreadyVaccinated
   | AdditionalInformation;
+
+export type stepProps = { [key in PageKey]?: boolean };
+
 export type ctx = {
-  values: FormInputs;
-  updateValues: (values: valueProps) => void;
+  steps: FormSteps;
+  currentStep: number;
+  updateCurrentStep: (currentStep: number) => void;
+  updateSteps: (step: stepProps) => void;
+  setSteps: (steps: FormSteps) => void;
 };
