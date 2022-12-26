@@ -32,7 +32,7 @@ const InputRadio: React.FC<RadioProps> = ({
               className='appearance-none cursor-pointer rounded-full h-4 w-4 ring-1 ring-offset-2 ring-offset-[#EAEAEA] ring-[#232323] checked:bg-[#232323]'
               type='radio'
               {...register!(name, validation)}
-              value={option[1] as any}
+              value={option[1] as string}
             />
             <label
               className='ml-5 cursor-pointer leading-6 text-xl'

@@ -1,6 +1,6 @@
 import { InputText } from 'Components';
 import { PersonalInformationImage } from 'assets';
-import FormLayout from './FormLayout';
+import { FormLayout } from 'pages';
 
 const PersonalInformation = () => {
   return (

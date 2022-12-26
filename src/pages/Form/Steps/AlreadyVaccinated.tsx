@@ -1,21 +1,10 @@
 import { VaccinatedImage } from 'assets';
 import { InputRadio } from 'Components';
-import { useFormContext } from 'react-hook-form';
-import { useInputWatch } from 'hooks/useInputWatch';
-import { useUnregister } from 'hooks/useUnregister';
-import { useMemo } from 'react';
 import { Link } from 'Components';
-import FormLayout from './FormLayout';
-
+import { FormLayout } from 'pages';
+import { useControlVaccineInputs } from 'hooks';
 const AlreadyVaccinated = () => {
-  const { control, unregister } = useFormContext();
-  const values = useMemo(() => ['vaccination_stage', 'i_am_waiting'], []);
-  const watchRadioInputs = useInputWatch({
-    control,
-    name: ['had_vaccine', ...values],
-  });
-  useUnregister(unregister, values, watchRadioInputs[0]);
-
+  useControlVaccineInputs();
   return (
     <FormLayout img={VaccinatedImage}>
       <InputRadio

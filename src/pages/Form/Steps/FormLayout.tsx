@@ -1,4 +1,4 @@
-import { Props, FormPageData } from 'types';
+import { FormLayoutProps, FormPageData } from 'types';
 import { useFormContext } from 'react-hook-form';
 import { Aside, Switcher } from 'Components';
 import {
@@ -28,7 +28,3 @@ const FormLayout: React.FC<FormLayoutProps> = ({ children, img }) => {
 };
 
 export default FormLayout;
-
-interface FormLayoutProps extends Props {
-  img: string;
-}

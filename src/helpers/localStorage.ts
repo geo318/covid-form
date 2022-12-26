@@ -2,7 +2,12 @@ import { FormInputs, FormSteps } from 'types';
 
 export const localStore = (
   name: string,
-  data?: string | FormInputs | FormSteps | null
+  data?:
+    | string
+    | FormInputs
+    | FormSteps
+    | { [key: string]: string | boolean | number }
+    | null
 ) => {
   if (data) {
     localStorage.setItem(name, JSON.stringify(data));
@@ -19,6 +24,6 @@ export const localStore = (
     if (item) return JSON.parse(item);
     return {};
   } catch (e) {
-    console.log(e);
+    return e;
   }
 };

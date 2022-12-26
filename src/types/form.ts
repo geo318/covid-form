@@ -3,8 +3,13 @@ import {
   UseFormHandleSubmit,
   FieldValues,
 } from 'react-hook-form';
+import { Props } from 'types';
 
 export type PageKey = 'personal' | 'covid' | 'vaccinated' | 'additional';
+
+export interface FormLayoutProps extends Props {
+  img: string;
+}
 
 export type UseFormHookValues = {
   register?: UseFormRegister<FieldValues>;

@@ -14,6 +14,6 @@ export const useGetLocalStorage = () => {
 export const useSetLocalStorage = () => {
   const formValues = useWatch();
   useEffect(() => {
-    localStore('form-values', formValues as any);
+    localStore('form-values', formValues);
   }, [formValues]);
 };

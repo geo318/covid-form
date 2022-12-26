@@ -1,6 +1,6 @@
 import { AdditionalInfoImage } from 'assets';
 import { InputRadio } from 'Components';
-import FormLayout from './FormLayout';
+import { FormLayout } from 'pages';
 
 const AdditionalInformation = () => {
   return (
