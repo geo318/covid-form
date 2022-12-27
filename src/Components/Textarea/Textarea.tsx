@@ -14,7 +14,7 @@ const Textarea: React.FC<InputProps> = ({ name, label, placeholder }) => {
       </label>
       <div className='flex flex-col'>
         <textarea
-          className='block h-44 max-w-2xl border border-[#232323] bg-[#EAEAEA] p-5  '
+          className='block h-44 max-w-2xl border border-app-black bg-[#EAEAEA] p-5  '
           placeholder={placeholder}
           id={name}
           {...register!(name)}

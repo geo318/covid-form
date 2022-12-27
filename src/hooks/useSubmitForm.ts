@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosInstance from 'helpers/axios';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
@@ -25,11 +25,10 @@ export const useSubmitForm = () => {
   const postValues = useCallback(async () => {
     setIsLoading(true);
     try {
-      const response = await axios({
+      const response = await axiosInstance({
         method: 'post',
-        url: 'https://covid19.devtest.ge/api/create',
+        url: '/create',
         data: obj,
-        headers: { 'Content-Type': 'application/json' },
         signal: controller.signal,
       });
 

@@ -10,7 +10,7 @@ const SubmitForm = () => {
       ) : isLoading ? (
         <div>loading..</div>
       ) : (
-        <div className='bg-[#232323] fixed inset-0 w-full h-screen flex items-center justify-center text-white text-6xl leading-snug font-bold tracking-[0.24em]'>
+        <div className='bg-app-black fixed inset-0 w-full h-screen flex items-center justify-center text-white text-6xl leading-snug font-bold tracking-[0.24em]'>
           მადლობა
         </div>
       )}

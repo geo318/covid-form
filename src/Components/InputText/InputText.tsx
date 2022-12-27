@@ -22,7 +22,7 @@ const InputText: React.FC<InputProps> = ({
         {label}
       </label>
       <input
-        className='w-full border border-[#232323] px-5 py-3 outline-none text-lg left-6 font-normal mb-2 bg-[#EAEAEA]'
+        className='w-full border border-app-black px-5 py-3 outline-none text-lg left-6 font-normal mb-2 bg-[#EAEAEA]'
         type={type}
         {...register!(name, validation)}
         placeholder={placeholder}

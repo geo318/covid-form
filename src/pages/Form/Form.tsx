@@ -10,16 +10,10 @@ import {
   Submit,
 } from 'pages';
 import { Header } from 'Components';
-import { localStore } from 'helpers';
-import { useEffect } from 'react';
 
 const Form = () => {
-  const { link, steps, updateSteps, locationKey } = useFormNavigation();
+  const { link, steps, locationKey } = useFormNavigation();
   const { getLocalValues } = useGetLocalStorage();
-
-  useEffect(() => {
-    updateSteps(localStore('form-steps'));
-  }, [updateSteps]);
 
   return (
     <>
