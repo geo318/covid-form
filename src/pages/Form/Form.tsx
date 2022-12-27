@@ -1,22 +1,29 @@
-import { FormContextProvider } from 'store';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useFormNavigation, useGetLocalStorage } from 'hooks';
 import {
   AdditionalInformation,
   AlreadyVaccinated,
+  Error,
   HadCovid,
   PersonalInformation,
+  Submit,
 } from 'pages';
 import { Header } from 'Components';
+import { localStore } from 'helpers';
+import { useEffect } from 'react';
 
 const Form = () => {
-  const { link, steps } = useFormNavigation();
+  const { link, steps, updateSteps, locationKey } = useFormNavigation();
   const { getLocalValues } = useGetLocalStorage();
 
+  useEffect(() => {
+    updateSteps(localStore('form-steps'));
+  }, [updateSteps]);
+
   return (
-    <FormContextProvider>
-      <Header />
+    <>
+      {locationKey !== 'submit' && <Header />}
       <FormProvider
         {...useForm({ mode: 'onBlur', defaultValues: getLocalValues() })}
       >
@@ -26,7 +33,6 @@ const Form = () => {
             {steps.personal && (
               <Route path={link('covid')} element={<HadCovid />} />
             )}
-
             {steps.covid && (
               <Route
                 path={link('vaccinated')}
@@ -39,13 +45,14 @@ const Form = () => {
                 element={<AdditionalInformation />}
               />
             )}
-            {false && (
-              <Route path='*' element={<Navigate replace to='/error-page' />} />
+            {steps.additional && (
+              <Route path={link('submit')} element={<Submit />} />
             )}
+            <Route path='*' element={<Error />} />
           </Routes>
         </div>
       </FormProvider>
-    </FormContextProvider>
+    </>
   );
 };
 

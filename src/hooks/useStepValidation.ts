@@ -4,14 +4,9 @@ import { FormSteps } from 'types';
 import { useFormNavigation } from 'hooks';
 
 export const useStepValidation = () => {
-  const { steps, setSteps, locationKey, updateSteps } = useFormNavigation();
+  const { locationKey, updateSteps, steps } = useFormNavigation();
   useEffect(() => {
     updateSteps({ [locationKey as keyof FormSteps]: false });
   }, [locationKey, updateSteps]);
-
-  useEffect(() => {
-    setSteps(localStore('form-steps'));
-  }, [setSteps]);
-
   localStore('form-steps', steps);
 };

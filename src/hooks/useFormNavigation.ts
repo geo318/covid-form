@@ -2,12 +2,14 @@ import { useContext, useEffect, useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import { FormPageData, PageKey } from 'types';
 import { FormContext } from 'store';
+import { localStore } from 'helpers';
 
 const paths: { [key: string]: { index: number; url: string } } = {
   personal: { index: 1, url: '/form/personal' },
   covid: { index: 2, url: '/form/covid' },
   vaccinated: { index: 3, url: '/form/vaccinated' },
   additional: { index: 4, url: '/form/additional' },
+  submit: { index: 5, url: '/submit' },
 };
 
 export const useFormNavigation = () => {
@@ -22,8 +24,11 @@ export const useFormNavigation = () => {
     [currentPath]
   );
 
+  const isPathValid = locationKey! in paths;
+
   useEffect(() => {
-    updateCurrentStep(paths[locationKey as string].index);
+    if (paths?.[locationKey as string])
+      updateCurrentStep(paths[locationKey as string].index);
   }, [updateCurrentStep, locationKey]);
 
   const navigateBack = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -38,18 +43,21 @@ export const useFormNavigation = () => {
 
   const onSubmitForm = (data: FormPageData) => {
     updateSteps({ [locationKey as string]: true });
-    setTimeout(() => navigate(link(getNextPathUrl() as PageKey)), 1000);
+    localStore('form-steps', steps);
+    navigate(link(getNextPathUrl() as PageKey));
   };
 
   return {
     steps,
     setSteps,
     currentStep,
+    currentPath,
     onSubmitForm,
     locationKey,
     updateSteps,
     link,
     navigate,
     navigateBack,
+    isPathValid,
   };
 };

@@ -4,10 +4,12 @@ import { FormLayout } from 'pages';
 import { useControlCovidInputs } from 'hooks';
 
 const HadCovid = () => {
-  useControlCovidInputs();
+  const { watchRadioInputs, unregisterAntibody, unregisterCovid } =
+    useControlCovidInputs();
   return (
     <FormLayout img={HadCovidImage}>
       <InputRadio
+        onClick={unregisterCovid as () => {}}
         name='had_covid'
         label='გაქვს გადატანილი Covid-19?*'
         validation={{
@@ -17,25 +19,26 @@ const HadCovid = () => {
           },
         }}
         options={[
-          ['კი', true],
-          ['არა', false],
+          ['კი', 'yes'],
+          ['არა', 'no'],
           ['ახლა მაქვს', 'have_right_now'],
         ]}
       />
-      {watchRadioInputs[0] === 'true' ? (
+      {watchRadioInputs[0] === 'yes' ? (
         <InputRadio
+          onClick={unregisterAntibody as () => {}}
           name='had_antibody_test'
           label='ანტისხეულების ტესტი გაქვს გაკეთებული?*'
-          options={[
-            ['კი', true],
-            ['არა', false],
-          ]}
           validation={{
             required: {
               value: true,
               message: 'სავალდებულო ველი',
             },
           }}
+          options={[
+            ['კი', true],
+            ['არა', false],
+          ]}
         />
       ) : null}
       {watchRadioInputs[1] === 'true' ? (
