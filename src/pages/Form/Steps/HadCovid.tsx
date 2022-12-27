@@ -2,12 +2,12 @@ import { HadCovidImage } from 'assets';
 import { InputRadio, InputText } from 'Components';
 import { FormLayout } from 'pages';
 import { useControlCovidInputs } from 'hooks';
-
+import { CovidShape } from 'Components';
 const HadCovid = () => {
   const { watchRadioInputs, unregisterAntibody, unregisterCovid } =
     useControlCovidInputs();
   return (
-    <FormLayout img={HadCovidImage}>
+    <FormLayout img={HadCovidImage} shape={<CovidShape />}>
       <InputRadio
         onClick={unregisterCovid as () => {}}
         name='had_covid'
@@ -44,14 +44,14 @@ const HadCovid = () => {
       {watchRadioInputs[1] === 'true' ? (
         <>
           <InputText
+            type='date'
             name='test_date'
             label='თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა'
-            type='text'
             placeholder='რიცხვი'
           />
           <InputText
             name='number'
-            type='text'
+            type='number'
             placeholder='ანტისხეულების რაოდენობა'
           />
         </>

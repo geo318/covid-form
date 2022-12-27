@@ -3,7 +3,7 @@ import {
   UseFormHandleSubmit,
   FieldValues,
 } from 'react-hook-form';
-import { Props } from 'types';
+import { AsideProps, Props } from 'types';
 
 export type PageKey =
   | 'personal'
@@ -12,9 +12,7 @@ export type PageKey =
   | 'additional'
   | 'submit';
 
-export interface FormLayoutProps extends Props {
-  img: string;
-}
+export interface FormLayoutProps extends Props, AsideProps {}
 
 export type UseFormHookValues = {
   register?: UseFormRegister<FieldValues>;

@@ -14,7 +14,7 @@ const Welcome: React.FC<Props> = (props) => {
         <div className='overflow-hidden'>
           <Link
             to='/form/personal'
-            className='start-questionnaire text-3xl leading-9 font-bold break-words w-48 text-center inline-block'
+            className='start-questionnaire text-3xl leading-9 font-bold break-words w-48 text-center inline-block font-app-caps'
           >
             კითხვარის დაწყება
           </Link>
