@@ -1,13 +1,14 @@
 import { VaccinatedImage } from 'assets';
-import { InputRadio } from 'Components';
-import { Link } from 'Components';
+import { InputRadio, Link } from 'Components';
 import { FormLayout } from 'pages';
 import { useControlVaccineInputs } from 'hooks';
+
 const AlreadyVaccinated = () => {
-  useControlVaccineInputs();
+  const { watchRadioInputs, unregisterVaccine } = useControlVaccineInputs();
   return (
     <FormLayout img={VaccinatedImage}>
       <InputRadio
+        onClick={unregisterVaccine as () => {}}
         name='had_vaccine'
         label='უკვე აცრილი ხარ?*'
         validation={{
@@ -81,10 +82,10 @@ const AlreadyVaccinated = () => {
               ახალი პროტოკოლით კოვიდის გადატანიდან 1 თვის შემდეგ შეგიძლიათ
               ვაქცინის გაკეთება.
             </p>
-            <p>
+            <div>
               <p>👉 რეგისტრაციის ბმული</p>
               <Link href='https://booking.moh.gov.ge/' />
-            </p>
+            </div>
           </>
         )}
         {watchRadioInputs[1] === 'first_dosage_and_not_registered_yet' && (

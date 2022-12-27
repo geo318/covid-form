@@ -1,5 +1,5 @@
 import { AdditionalInfoImage } from 'assets';
-import { InputRadio } from 'Components';
+import { InputRadio, Textarea } from 'Components';
 import { FormLayout } from 'pages';
 
 const AdditionalInformation = () => {
@@ -51,6 +51,24 @@ const AdditionalInformation = () => {
           ['5', '5'],
         ]}
       />
+      <Textarea
+        name='what_about_meetings_in_live'
+        label='რას ფიქრობ ფიზიკურ შეკრებებზე?'
+      />
+      <div className='h-12' />
+      <Textarea
+        name='tell_us_your_opinion_about_us'
+        label='რას ფიქრობ არსებულ გარემოზე: 
+        რა მოგწონს, რას დაამატებდი, რას შეცვლიდი?'
+      />
+      <div className='mt-14 max-w-lg'>
+        <button
+          type='submit'
+          className='px-7 py-4 bg-[#208298] hover:bg-[#1a697a] text-white rounded-full text-lg leading-5 font-bold ml-auto float-right'
+        >
+          დასრულება
+        </button>
+      </div>
     </FormLayout>
   );
 };

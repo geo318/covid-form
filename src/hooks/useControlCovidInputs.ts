@@ -1,7 +1,5 @@
-import { useMemo } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { useInputWatch } from './useInputWatch';
-import { useUnregister } from './useUnregister';
 
 export const useControlCovidInputs = () => {
   const { control, unregister } = useFormContext();
@@ -9,14 +7,17 @@ export const useControlCovidInputs = () => {
     control,
     name: ['had_covid', 'had_antibody_test'],
   });
-  const hadCovidValues = useMemo(
-    () => ['had_antibody_test', 'covid_sickness_date', 'test_date', 'number'],
-    []
-  );
-  const hadAntibodyValues = useMemo(
-    () => ['covid_sickness_date', 'test_date', 'number'],
-    []
-  );
-  useUnregister(unregister, hadCovidValues, watchRadioInputs[0]);
-  useUnregister(unregister, hadAntibodyValues, watchRadioInputs[1]);
+
+  const unregisterCovid = () =>
+    unregister([
+      'had_antibody_test',
+      'covid_sickness_date',
+      'test_date',
+      'number',
+    ]);
+
+  const unregisterAntibody = () =>
+    unregister(['covid_sickness_date', 'test_date', 'number']);
+
+  return { watchRadioInputs, unregisterCovid, unregisterAntibody };
 };
