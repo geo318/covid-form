@@ -1,7 +1,6 @@
-import { InputText } from 'Components';
+import { InputText, PersonalShape } from 'Components';
 import { PersonalInformationImage } from 'assets';
 import { FormLayout } from 'pages';
-import { PersonalShape } from 'Components';
 
 const PersonalInformation = () => {
   return (

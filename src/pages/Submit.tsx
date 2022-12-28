@@ -1,5 +1,5 @@
 import { useSubmitForm } from 'hooks/useSubmitForm';
-import Star from 'Components/icons/shapes/Star';
+import { Star } from 'Components';
 
 const SubmitForm = () => {
   const { error, isLoading } = useSubmitForm();
@@ -13,7 +13,9 @@ const SubmitForm = () => {
           <div>Loading..</div>
         ) : (
           <>
-            <div className='thanks absolute text-6xl leading-snug font-bold tracking-[0.24em] font-app-caps'>მადლობა</div>
+            <div className='thanks absolute text-6xl leading-snug font-bold tracking-[0.24em] font-app-caps'>
+              მადლობა
+            </div>
             <div className='h-0 block relative '>
               <Star className='star-left' />
               <Star className='star-right' />

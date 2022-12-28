@@ -1,7 +1,6 @@
 import { AdditionalInfoImage } from 'assets';
-import { InputRadio, Textarea } from 'Components';
+import { InputRadio, Textarea, AdditionalShape } from 'Components';
 import { FormLayout } from 'pages';
-import { AdditionalShape } from 'Components';
 
 const AdditionalInformation = () => {
   return (

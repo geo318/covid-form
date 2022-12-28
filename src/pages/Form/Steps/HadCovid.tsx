@@ -1,8 +1,8 @@
 import { HadCovidImage } from 'assets';
-import { InputRadio, InputText } from 'Components';
+import { InputRadio, InputText, CovidShape } from 'Components';
 import { FormLayout } from 'pages';
 import { useControlCovidInputs } from 'hooks';
-import { CovidShape } from 'Components';
+
 const HadCovid = () => {
   const { watchRadioInputs, unregisterAntibody, unregisterCovid } =
     useControlCovidInputs();

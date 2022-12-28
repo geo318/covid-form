@@ -1,8 +1,7 @@
 import { VaccinatedImage } from 'assets';
-import { InputRadio, Link } from 'Components';
+import { InputRadio, Link, VaccineShape } from 'Components';
 import { FormLayout } from 'pages';
 import { useControlVaccineInputs } from 'hooks';
-import { VaccineShape } from 'Components';
 
 const AlreadyVaccinated = () => {
   const { watchRadioInputs, unregisterVaccine } = useControlVaccineInputs();
