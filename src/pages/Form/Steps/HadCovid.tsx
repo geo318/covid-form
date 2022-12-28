@@ -4,8 +4,12 @@ import { FormLayout } from 'pages';
 import { useControlCovidInputs } from 'hooks';
 
 const HadCovid = () => {
-  const { watchRadioInputs, unregisterAntibody, unregisterCovid } =
-    useControlCovidInputs();
+  const {
+    watchRadioInputs,
+    unregisterAntibody,
+    unregisterCovid,
+    validateFutureDate,
+  } = useControlCovidInputs();
   return (
     <FormLayout img={HadCovidImage} shape={<CovidShape />}>
       <InputRadio
@@ -48,11 +52,23 @@ const HadCovid = () => {
             name='test_date'
             label='თუ გახსოვს, გთხოვ მიუთითე ტესტის მიახლოებითი რიცხვი და ანტისხეულების რაოდენობა'
             placeholder='რიცხვი'
+            validation={{
+              max: {
+                value: validateFutureDate as string,
+                message: 'არასწორი თარიღი',
+              },
+            }}
           />
           <InputText
             name='number'
             type='number'
             placeholder='ანტისხეულების რაოდენობა'
+            validation={{
+              min: {
+                value: 0,
+                message: 'არასწორი რიცხვი',
+              },
+            }}
           />
         </>
       ) : (
@@ -66,6 +82,10 @@ const HadCovid = () => {
               required: {
                 value: true,
                 message: 'სავალდებულო ველი',
+              },
+              max: {
+                value: validateFutureDate as string,
+                message: 'არასწორი თარიღი',
               },
             }}
           />

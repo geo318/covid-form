@@ -7,6 +7,8 @@ export interface InputProps extends Props {
   placeholder?: string;
   type?: string;
   validation?: {
-    [key: string]: { value: number | boolean | RegExp; message?: string };
+    [key: string]: {
+      [key: string]: string | number | boolean | RegExp;
+    };
   };
 }

@@ -1,4 +1,7 @@
-const Arrow: React.FC<{ right?: boolean }> = ({ right }) => (
+const Arrow: React.FC<{ right?: boolean; isValid?: boolean }> = ({
+  right,
+  isValid,
+}) => (
   <>
     {right ? (
       <svg
@@ -10,7 +13,7 @@ const Arrow: React.FC<{ right?: boolean }> = ({ right }) => (
       >
         <path
           d='M1 1L15 11.3158L1 21.6316'
-          stroke='#232323'
+          stroke={isValid ? '#232323' : '#8D8D8D'}
           strokeWidth='2.4'
         />
       </svg>

@@ -1,7 +1,12 @@
 import { Arrow } from 'Components';
 import { useFormNavigation } from 'hooks';
+import { useFormContext } from 'react-hook-form';
 
 const Switcher = () => {
+  const {
+    formState: { isValid },
+  } = useFormContext();
+
   const { navigateBack, locationKey } = useFormNavigation();
   return (
     <div className='pb-28 flex items-center justify-center mt-auto'>
@@ -13,7 +18,7 @@ const Switcher = () => {
       <div className='w-28' />
       {locationKey !== 'additional' && (
         <button type='submit' className='p-3'>
-          <Arrow right />
+          <Arrow right isValid={isValid} />
         </button>
       )}
     </div>
