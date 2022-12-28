@@ -19,5 +19,12 @@ export const useControlCovidInputs = () => {
   const unregisterAntibody = () =>
     unregister(['covid_sickness_date', 'test_date', 'number']);
 
-  return { watchRadioInputs, unregisterCovid, unregisterAntibody };
+  const validateFutureDate = new Date().toISOString().split('T').shift();
+
+  return {
+    watchRadioInputs,
+    unregisterCovid,
+    unregisterAntibody,
+    validateFutureDate,
+  };
 };

@@ -219,3 +219,10 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.start-questionnaire:hover {
+    text-shadow:
+        2px 2px 0px rgb(255 255 255), 
+        2px 3px 0px rgb(0 0 0), 
+        3px 2px 0px rgb(0 0 0);
+}

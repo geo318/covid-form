@@ -28,7 +28,7 @@ const InputText: React.FC<InputProps> = ({
         placeholder={placeholder}
       />
       {validation ? (
-        <div className='h-5 mb-6'>
+        <div className='h-5 mb-6 ml-5'>
           <span className='text-[#F15524] text-base leading-5'>
             {errors?.[name] && <p>{errors[name]!.message as string}</p>}
           </span>
