@@ -1,10 +1,10 @@
 import { AdditionalInfoImage } from 'assets';
-import { InputRadio, Textarea } from 'Components';
+import { InputRadio, Textarea, AdditionalShape } from 'Components';
 import { FormLayout } from 'pages';
 
 const AdditionalInformation = () => {
   return (
-    <FormLayout img={AdditionalInfoImage}>
+    <FormLayout img={AdditionalInfoImage} shape={<AdditionalShape />}>
       <div className='leading-7 text-xl flex flex-col gap-6 mb-11 max-w-2xl'>
         <p>
           რედბერის მთავარი ღირებულება ჩვენი გუნდის თითოეული წევრია. გარემო,
@@ -64,7 +64,7 @@ const AdditionalInformation = () => {
       <div className='mt-14 max-w-lg'>
         <button
           type='submit'
-          className='px-7 py-4 bg-[#208298] hover:bg-[#1a697a] text-white rounded-full text-lg leading-5 font-bold ml-auto float-right'
+          className='font-app-caps px-7 py-4 bg-[#208298] hover:bg-[#1a697a] text-white rounded-full text-lg leading-5 font-bold ml-auto float-right'
         >
           დასრულება
         </button>

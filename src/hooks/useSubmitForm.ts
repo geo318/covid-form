@@ -1,8 +1,9 @@
+import { localStore } from 'helpers';
 import axiosInstance from 'helpers/axios';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-
-const obj: {
+import { useFormNavigation } from './useFormNavigation';
+const valuesToSubmit: {
   [key: string]: string | number | boolean;
 } = {};
 
@@ -12,14 +13,18 @@ export const useSubmitForm = () => {
   const { getValues } = useFormContext();
   const values = getValues();
   const controller = useMemo(() => new AbortController(), []);
+  const { navigate } = useFormNavigation();
 
   Object.keys(values).forEach((key) => {
-    if (values[key] === 'true' || values[key] === 'false') {
-      obj[key] = !!values[key];
+    if (values[key] === 'true') {
+      valuesToSubmit[key] = true;
       return;
     }
-
-    obj[key] = values[key];
+    if (values[key] === 'false') {
+      valuesToSubmit[key] = false;
+      return;
+    }
+    valuesToSubmit[key] = values[key];
   });
 
   const postValues = useCallback(async () => {
@@ -28,7 +33,7 @@ export const useSubmitForm = () => {
       const response = await axiosInstance({
         method: 'post',
         url: '/create',
-        data: obj,
+        data: valuesToSubmit,
         signal: controller.signal,
       });
 
@@ -36,10 +41,16 @@ export const useSubmitForm = () => {
         throw new Error('Something went wrong..');
 
       setIsLoading(false);
+      localStore('form-values', null);
+      localStore('form-steps', null);
+
+      setTimeout(() => {
+        navigate('/');
+      }, 10000);
     } catch {
       setError(true);
     }
-  }, [controller.signal]);
+  }, [controller.signal, navigate]);
 
   useEffect(() => {
     postValues();

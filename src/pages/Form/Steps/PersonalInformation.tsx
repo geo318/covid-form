@@ -1,10 +1,10 @@
-import { InputText } from 'Components';
+import { InputText, PersonalShape } from 'Components';
 import { PersonalInformationImage } from 'assets';
 import { FormLayout } from 'pages';
 
 const PersonalInformation = () => {
   return (
-    <FormLayout img={PersonalInformationImage}>
+    <FormLayout img={PersonalInformationImage} shape={<PersonalShape />}>
       <InputText
         name='first_name'
         label='სახელი*'

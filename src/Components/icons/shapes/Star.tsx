@@ -1,5 +1,8 @@
-const Star = () => (
+import { ShapeProps } from './types';
+
+export const Star: React.FC<ShapeProps> = ({ className }) => (
   <svg
+    className={`${className || ''}`}
     width='53'
     height='53'
     viewBox='0 0 53 53'
@@ -12,5 +15,3 @@ const Star = () => (
     />
   </svg>
 );
-
-export default Star;

@@ -1,20 +1,29 @@
 import { useSubmitForm } from 'hooks/useSubmitForm';
+import { Star } from 'Components';
 
 const SubmitForm = () => {
   const { error, isLoading } = useSubmitForm();
-  const errorBlock = <div>error</div>;
+
   return (
-    <>
-      {error ? (
-        errorBlock
-      ) : isLoading ? (
-        <div>loading..</div>
-      ) : (
-        <div className='bg-app-black fixed inset-0 w-full h-screen flex items-center justify-center text-white text-6xl leading-snug font-bold tracking-[0.24em]'>
-          მადლობა
-        </div>
-      )}
-    </>
+    <div className='bg-app-black fixed inset-0 text-white '>
+      <div className='w-full h-screen flex items-center justify-center'>
+        {error ? (
+          <div>Error | Something went wrong...</div>
+        ) : isLoading ? (
+          <div>Loading..</div>
+        ) : (
+          <>
+            <div className='thanks absolute text-6xl leading-snug font-bold tracking-[0.24em] font-app-caps'>
+              მადლობა
+            </div>
+            <div className='h-0 block relative '>
+              <Star className='star-left' />
+              <Star className='star-right' />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

@@ -79,3 +79,143 @@
         translate: 0 0%;
     }
 }
+
+.shape-personal {
+    width: 540px;
+    translate:60px 140px;
+    animation: shape-personal 350ms ease-out;
+}
+
+@keyframes shape-personal {
+    from {
+        translate:-100px 190px;
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        translate:60px 140px;
+        width: 540px;
+        opacity: 1;
+    }
+}
+
+.shape-covid {
+    translate:20px 150px;
+    width: 200px;
+    animation: shape-covid 350ms ease-out;
+}
+
+@keyframes shape-covid {
+    from {
+        translate:200px 100px;
+        width: 250px;
+        opacity: 0;
+    }
+    to {
+        translate:20px 150px;
+        width: 200px;
+        opacity: 1;
+    }
+}
+
+.shape-vaccine {
+    animation: shape-vaccine 350ms ease-out;
+}
+
+@keyframes shape-vaccine {
+    from {
+        translate:0 100px;
+        opacity: 0;
+    }
+    to {
+        translate:0 0;
+        opacity: 1;
+    }
+}
+.additional {top:160px}
+.shape-additional {
+    width: 170px;
+    translate:80px 40px;
+    animation: shape-additional 350ms ease-out;
+}
+
+@keyframes shape-additional {
+    from {
+        width: 200px;
+        translate:20px 60px;
+        opacity: 0;
+    }
+    to {
+        width: 170px;
+        translate:80px 40px;
+        opacity: 1;
+    }
+}
+
+.thanks {
+    animation: thanks 400ms ease-in;
+}
+
+@keyframes thanks {
+    0% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.star-right {
+    translate:164px -20px;
+    width: 30px;
+    animation: star-right 700ms ease-out;
+}
+
+@keyframes star-right {
+    0% {
+        opacity: 0;
+        translate:0px -80px;
+    }
+    60% {
+        opacity: 0;
+        translate:0px -80px;
+    }
+    100% {
+        opacity: 1;
+        translate:164px -20px;
+    }
+}
+
+.star-left {
+    translate:-160px -110px;
+    animation: star-left 700ms ease-out;
+}
+
+@keyframes star-left {
+    0% {
+        opacity: 0;
+        translate:0px -20px;
+    }
+    60% {
+        opacity: 0;
+        translate:0px -20px;
+    }
+    100% {
+        opacity: 1;
+        translate:-160px -110px;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

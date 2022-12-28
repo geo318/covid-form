@@ -5,6 +5,9 @@ module.exports = {
       colors: {
         'app-black': '#232323',
       },
+      fontFamily: {
+        'app-caps': ['BPG Arial Caps'],
+      },
     },
   },
   plugins: [],

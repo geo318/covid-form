@@ -7,7 +7,7 @@ import {
   useStepValidation,
 } from 'hooks';
 
-const FormLayout: React.FC<FormLayoutProps> = ({ children, img }) => {
+const FormLayout: React.FC<FormLayoutProps> = ({ children, shape, img }) => {
   const { handleSubmit } = useFormContext();
   const { onSubmitForm } = useFormNavigation();
   useStepValidation();
@@ -20,7 +20,7 @@ const FormLayout: React.FC<FormLayoutProps> = ({ children, img }) => {
     >
       <div className='flex'>
         <div className='basis-1/2'>{children}</div>
-        <Aside img={img} />
+        <Aside img={img} shape={shape} />
       </div>
       <Switcher />
     </form>
