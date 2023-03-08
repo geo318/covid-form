@@ -21,7 +21,7 @@ Fill in covid form whether vaccinated or not and let us know your covid experien
 ## Getting Started
 1. Clone Covid repository from github:
 ```bash
- git clone https://github.com/RedberryInternship/covid-questionare-temo-jincharadze.git
+ git clone https://github.com/geo318/covid-form.git
 ```
 2. Next step requires you to run npm install to download all the dependencies:
 ```bash
